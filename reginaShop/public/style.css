@@ -1,0 +1,12 @@
+body{
+  background-image: url('meanGirlsShopping.gif');
+  background-repeat: repeat;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+* {
+  box-sizing: border-box;
+}
+/* Clear fix hack do i need this im not using floats? */
