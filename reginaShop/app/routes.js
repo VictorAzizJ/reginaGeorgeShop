@@ -73,13 +73,29 @@ module.exports = function(app, passport, db) {
       console.log("this is req.body.itemID: ", req.body.itemID);
 
 
-      db.collection('cart').insertOne({ item: req.body.item, id: req.body.itemID, inCart: true }, (err, result) => { //mini cart feature seems to have broken app during final strech. 
+      db.collection('cart').insertOne({ item: req.body.item, id: req.body.itemID, paid: false }, (err, result) => { 
           if (err) return console.log(err)
           console.log('added to cart!')
           res.redirect('back');// need to reload whatever page you are currently on
           
       })
   })
+
+  app.put('/payForItem', (req, res) => {
+    db.collection('cart')
+        .findOneAndUpdate({ item: req.body.item }, {
+            $set: {
+                paid: true
+            }
+        }, {
+                sort: { _id: -1 },
+                upsert: true
+            }, (err, result) => {
+                if (err) return res.send(err)
+                res.send(result)
+            })
+})
+
 
   app.delete('/cartRemove', (req, res) => {
       console.log(req.body);

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jewelery page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -11,18 +12,12 @@
     <header>
         <nav>
             <ul>
-                <li>
-                    <a href="/women">Womens Collection</a>
-                </li>
-                <li>
-                    <a href="/men">Mens Collection</a>
-                </li>
+                
+                
                 <li>
                     <a href="/jewelery">Jewelery Collection </a>
                 </li>
-                <li>
-                    <a href="/electronics">Electronics Collection</a>
-                </li>
+                
             </ul>
         </nav>
     </header>
@@ -37,8 +32,8 @@
                         <%= inventory[i].description %>
                     </span>
                     <img src="<%= inventory[i].image %>" alt="<%= inventory[i].title %>">
-                    <span>
-                        <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+                    <span> Buy Me
+                        <button type="submit" class="buy">Buy Me</button>
                     </span>
                 </li>
                 <% } %>

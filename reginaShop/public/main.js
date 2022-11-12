@@ -1,6 +1,7 @@
 
-var cart = document.getElementsByClassName("message")
-
+var cart = document.getElementsByClassName("buy")
+var trash = document.getElementsByClassName("trash");
+var checkout = document.getElementsByClassName("checkout");
 
 
 Array.from(cart).forEach(function (element) {
@@ -18,6 +19,24 @@ Array.from(cart).forEach(function (element) {
       })
     }).then(function (response) {
       window.location.reload()
+    })
+  });
+});
+Array.from(checkout).forEach(function (element) {
+  element.addEventListener('click', function () {
+    const itemTitle = this.parentNode.parentNode.childNodes[1].innerText
+    const itemId = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
+    fetch('payForItem', {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'item': itemTitle.trim(), //remember what ellie said//
+        'itemID': itemId
+      })
+    }).then(function (response) {
+      window.location.reload(true)
     })
   });
 });
