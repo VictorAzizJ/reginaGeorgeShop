@@ -1,7 +1,8 @@
 body{
-  background-image: url('meanGirlsShopping.gif');
+  background-image: url('img/meanGirlsShopping.gif');
   background-repeat: repeat;
   word-wrap:break-word;
+  font-family: 'The Girl Next Door', cursive;
 }
 img{
   height: 200px;
@@ -10,3 +11,15 @@ img{
   box-sizing: border-box;
 }
 /* Clear fix hack do i need this im not using floats? */
+ul{
+  background-color: pink;
+  border-radius: 5%;
+  border: 2px groove black;
+}
+li{
+  list-style: none;
+}
+nav{
+  display: flex;
+  justify-content: center;
+}
